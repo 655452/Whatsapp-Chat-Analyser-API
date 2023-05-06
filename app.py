@@ -1,4 +1,4 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 import preprocessor,helper
 import matplotlib.pyplot as plt
 import matplotlib
@@ -8,6 +8,9 @@ matplotlib.use('agg')
 
 
 app = Flask(__name__)
+@app.route('/',methods=['GET'])
+def home():
+     return render_template('home.html')
 
 @app.route('/upload',methods=['POST'])
 def upload_file():
@@ -21,6 +24,8 @@ def upload_file():
 
         # fetch unique users
         user_list = df['user'].unique().tolist()
+
+        
         # user_list.remove('group_notification')
         user_list.sort()
         user_list.insert(0,"Overall")

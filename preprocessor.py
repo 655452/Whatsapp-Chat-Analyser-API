@@ -129,6 +129,9 @@ def preprocess(data):
     df['user'] = users
     df['message'] = messages
     df.drop(columns=['user_message'], inplace=True)
+    # these eliminates the group notification and Media Omitted from the data
+    df=df.drop(df[df['user']=='group_notification'].index)
+    df=df.drop(df[df['message']=='<Media omitted>\r\n'].index)
     # print(df.head())
 
     # print(df['message_date'])
