@@ -1,1 +1,10 @@
 
+streamlit
+matplotlib
+seaborn
+urlextract
+wordcloud
+pandas
+emoji
+regex
+advertools
