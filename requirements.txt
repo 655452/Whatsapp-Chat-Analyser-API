@@ -8,3 +8,4 @@ pandas
 emoji
 regex
 advertools
+flask
